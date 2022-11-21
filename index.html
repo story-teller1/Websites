@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Website for KB</title>
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Preliminary Ideas about Distributions (Exclusively designed for KB)</h1>
+    </div>
+    <div class="intro cmath">
+        <h2>Introduction</h2>
+        <p>Hi! KB. Nice to meet you. I am here to help you understanding distributions. Let's understand what are the
+            preliminary ideas to understand distributions.</p>
+        <h3>What is a distribution?</h3>
+        <p> A distribution is nothing but a model to predict the irregular component we face while statistical
+            modelling. Naturally, it is a probabilistic model. So, without any further delay let's get started: </p>
+        <h3>Preliminary Ideas</h3>
+        <p>To know about the characteristics of a distribution you have to know the following things.</p>
+        <ol>
+            <li>Ideas about Location, Spread, Moments</li>
+            <li>MGF, CGF, PGF : Concepts and their usages</li>
+
+        </ol>
+
+    </div>
+    <div class="intro cmath">
+        <h2>একটু Moments আর Expectation এর পিন্ডি চটকানো যাক 😜</h2>
+        <ul>
+            <li class="head">Moments- খায়? না মাথায় মাখে?</li>
+            <p>Answer is very simple. সেটা হল গিয়ে </p>
+            <p>এটা mainly একটা distribution এর চরিত্র বুঝতে কাজে লাগে। এর মাধ্যমে আমরা একটা distribution এর value গুলোকে কাজে লাগিয়ে ওই distribution এর location, Spread, skewness, kurtosis সম্পর্কে জানার চেষ্টা করি । যেমন location পেতে গেলে formula টা হচ্ছে - simple average = `barx=sum_(i=1)^n(x_i)/n`<br>এটাকেই mean বলে।</p>
+            <li>Here the basic assumption is there are n observations which are `x-i` where i=1(1)n</li>
+            <p>Moments are basically of two types -</p>
+            <ol>
+                <li>Central moments</li>
+                <p>After getting the location we have to find out that how much the observations are spread around the location. মানে এখন আমরা center বা location এর around এ observations গুলো কতটা ছড়িয়ে আছে সেটা জানার চেষ্টা করব | 
+                </p>
+                <p>Clearly, we have to get the difference between the observations from the center. এখন <br> <span class="important">`mu_1=1/nsum_(i=1)^n(x_i-barx)`</span> <br>  This `mu_1` is called 1st order central moment.  </p>
+                    <p>Now, `mu_1=0` (True for all distribution). So, we can't get any idea about how the observations are spread around the center from just by difference. তাই যদি আমরা ওই difference গুলোকে square করে add করি তাহলে observations গুলো কতটা ছড়িয়ে তার একটা ধারনা পাওয়া যাবে | The formula is - <br><span class="important">`mu_2=1/nsum_(i=1)^n(x_i-barx)^2`</span><br>This `mu_2` is called 2nd order central moment. এটাকেই variance বলে।</p>
+                    <p>এইভাবে যদি আমরা ওই difference এর power বাড়াতে থাকি তাহলে আমরা ওই distribution আরও অনেক characteristics সম্পর্কে জানতে পারব। তাই rth order central moment মানে হল observation এর থেকে location বা center এর difference কে r-times zoom করে দেখা | এটার formula টা হল গিয়ে <br><span class="important">`mu_r=1/nsum_(i=1)^n(x_i-barx)^r`</span><br>ঠিক তো?</p>
+                <li>Raw moments</li>
+                <p>Raw moment এ just 0 এর around এ observation গুলো কতটা ছড়িয়ে আছে সেটা জানা হয় | আর notation গুলো একটু change হয় | এখানে rth order raw moment এর notation হল <br><span class="important">`mu_r^'=1/nsum_(i=1)^n(x_i)^r`</span><br>Notation টা লক্ষ করলে বুঝতে পারবি যে central moment এর notation এর  ওপর একটা "'" add হচ্ছে  আর formula তে `barx` is replaced by 0 ব্যাস এটুকুই | আর কোনো পার্থক্য নেই |
+                </p>
+                <ul><li class="nb">বি.দ্র. : </li>
+                <p>এখানে প্রত্যেকটা moments এর formula তে observation এর থেকে location বা center এর difference কে n দিয়ে ভাগ করা হয়েছে কারন only then the value given by moments will be independent of the number of observations.</p></ul>
+            </ol>
+            
+
+            
+            <li class="head">Expectation - What and Why?
+            </li>
+            <p>Expectation হচ্ছে probability distribution এর ক্ষেত্রে moments এর analogy.</p>
+            <p>E(X) mane ho66e random variable X er mean. <br>`E(X)=int_(-oo)^ooxf(x)dx` <br>
+                jekhane f(x) ta holo Random variable X er PDF.</p>
+            <P>Ekta soja jinis mathai rakhbi je jodi toke E(খানকি বারিক) বার করতে বলে তাহলে <br>E(খানকি বারিক) `=int_(-oo)^oo`(খানকি বারিক)`f(x)dx`</P>
+            <p>Basically Eta amra probability guloke ekta definite weight diye mapar chesta kori. Bujhtei par6is je `E(X^2)` = 2nd order raw moment `=int_(-oo)^oox^2f(x)dx`</p>
+            <p>Similarly, `E(X^(KB))=int_(-oo)^oox^(KB)f(x)dx` <span class="important">WHERE KB = Khanki Barik</span></p>
+            <p>=KBth order raw moment</p>
+            <p>Similarly `E((X-mu^')^r)`= rth order central moment. </p>
+            <p>এটার expression নিজে নিজে বার কর বোকাচোদা 👃</p>
+            <ul><li class="nb">বি.দ্র. : </li>
+                <p>For discrete case integration will be replaced by summation.</p></ul>
+
+        </ul>
+    </div>
+    <div class="intro cmath">
+        <h2>Important Formulas</h2>
+        <ol>
+            <li class="head">`e^x= 1 + x + x^2/(2!) + x^3/(3!) + x^4/(4!) + ... ` upto `oo = sum_(r=0)^oox^r/(r!)` </li>
+            <p>&emsp;(এই notation টা  PC অনেক জায়গায় use করে. So, মনে রাখবি।) </p>
+            <li class="head">MGF (Moment Generating Function)`= M_X(t) = E(e^(tX))`</li>
+            <p>এবার 1 number expansion টা use করে পাই - </p>
+            <p>`e^(tX)= 1 + tX + (tX)^2/(2!) + (tX)^3/(3!) + (tX)^4/(4!) + ... ` upto `oo `</p>
+            <p>এবার 2 নং relation এ বসিয়ে যেটা পাবি সেটা হল গিয়ে .....</p>
+            <p>`E[ 1 + tX + (tX)^2/(2!) + (tX)^3/(3!) + (tX)^4/(4!) + ...] = E(1)+ tE(X)+ t^2/(2!) E(X^2) + t^3/(3!) E(X^3) + t^4/(4!) E(X^4) + .... ` </p>
+            <p>`= 1 + mu_1^' + t^2/(2!) mu_2^' +t^3/(3!) mu_3^' + .... + t^r/(r!) mu_r^' + .... ` upto `oo`</p>
+            <p>ঠিক তো?</p>
+            <p>তো এখন নিশ্চয়ই বুঝতে পারছিস why it is called Moment Generating Function? 
+
+            </p>
+            <p>কি........ রে? ধুরসালা, এদিকে দেখ।</p>
+            <p>In the expansion of MGF the coefficient(সহগ) of `t^r/(r!)` gives us the rth order raw moment.(Discussed earlier) </p>
+            <p> So, এটা basically Moment generate করছে। তাই একে Moment Generating Function বলে।</p>
+            <li class="head">ln(1+x)`= x - x^2/2 + x^3/3 - x^4/4 + ...`</li>
+            <p>
+                
+                This expansion is also very important.
+            </p>
+            <li class="head">CGF (Cumulant Generating Function) `=K_X(t)=ln(M_X(t))`</li>
+            <p>Expand `ln(M_X(t))` and get the coefficient of `t^r/(r!)`</p>
+            <p>নিজে নিজে গাঁতিয়ে কর। সব কি আমি করে দেব ?😏 একটা hint দিচ্ছি, use formula 3.👍</p>
+            <p>যাই হোক, এখানে coefficient of `t^r/(r!)` তোকে rth order central moment দেবে।</p>
+            <li class="head">Gamma Integral</li>
+            <p>`int_0^oox^(p-1)e^(-ax)dx=( Gammap)/a^p`</p>
+            <p>where `a>0`;</p>
+            <p>Now, `Gammap=(p-1)Gamma(p-1)`</p>
+            <p>If p = integer, then `Gammap=(p-1)! " and " Gamma(1/2)=sqrt(pi)`</p>
+            <p>For an example, value of `Gamma(5/2)=3/2Gamma(3/2)=3/2 * 1/2 Gamma(1/2)= 3/2 * 1/2 * sqrt(pi)`</p>
+            <li class="head">`nu_1=mu_3`/`mu_2^(3/2)` [`:'mu_2!=0`]</li>
+            <p>It is a measure of skewness.</p>
+            <p>`nu_1>0 =>` positively skewed</p>
+            <p>`nu_1=0 =>` symmetric</p>
+            <p>`nu_1<0 =>` negatively skewed,</p>
+            <li class="head">`nu_2=(mu_4`/`mu_2^2) -3 ` [`:'mu_2!=0`]</li>
+            <p>It is a measure of kurtosis.</p>
+            <p>`nu_2>0 =>` leptokurtic</p>
+            <p>`nu_2=0 =>` mesokurtic</p>
+            <p>`nu_2<0 =>` platykurtic</p>
+            <li class="head">Relation between Raw moments and Central Moments</li>
+            <ul>
+                <li>`mu_1=mu_1^'`</li>
+                <li>`mu_2=mu_2^'-(mu_1^')^2`</li>
+                <li>`mu_3=mu_3^'-3mu_2^'mu_1^' + 2(mu_1^')^3`</li>
+                <li>Generally, `mu_r=mu_r^' - rC1mu_(r-1)^'mu_1^' + rC2mu_(r-2)^'(mu_1^')^2 - ... + (-1)^(r-2)rC(r-2)mu_(2)^'(mu_1^')^(r-2) + (-1)^(r-1)(mu_1^')^r`</li>
+            </ul>
+        </ol> 
+
+        
+    </div>
+    <div class="intro cmath">
+        <h2>Usage and Examples</h2>
+        <p>এতক্ষণ ধরে এত যে চোদনামো মারলাম তার একটা Example দিচ্ছি দেখ বাঁরা -</p>
+        <ul>
+            <li class="head">MGF of Exponential distribution</li>
+            <p>PDF of Exponential distribution`= f(x) = 1/theta e^(-x/theta)I_(x>0)`</p>
+            <p>এবার যদি তোকে কেউ MGF বার করতে দেয় তাহলে তুই at first লিখবি</p>
+            <p> MGF = `M_X(t) = E(e^(tX))`</p>
+            <p>`=int_RRe^(tx)f(x)dx=int_RRe^(tx)1/theta e^(-x/theta)dx=int_0^ooe^(tx)/theta e^(-x/theta)dx`</p>
+            <p>`=ubrace(int_0^ooe^(-x/theta(1-thetat))/thetadx)_("converges for " 1- thetat >0)`</p>
+            <p>`=1/theta (Gamma1)/((1-thetat)/theta)=(1-thetat)^(-1)`</p>
+            <div class="container"><div class="leftcontainer">
+            <P>`=1 + thetat + 2thetat^2/(2!) + 3(thetat)^3/(3!) + ..... + r(thetat)^r/(r!)`</P>
+        </div>
+    <div class="rightcontainer">এটা যদি না বুঝতে পারিস তাহলে তোর HS এর ভিত দুর্বল ।</div></div>
+            <p>এটাই হচ্ছে MGF of Exponential distribution. </p>
+            <p> Now, the coefficient of `t^r/(r!)` in the expansion of MGF is `= rtheta^r`</p>
+            <p> So, rth order raw moment `mu_r^'=rtheta^r`</p>
+            <li class="head">CGF of Exponential distribution</li>
+            <p>CGF = ln(MGF)</p>
+            <P>`K_X(t)=ln(M_X(t))=-ln(1-thetat)`</P>
+            <p>`=sum_(r=1)^oo(thetat)^r/r`</p>
+            <p>`K_r=` coefficient of `t^r/(r!) " in the expansion of CGF "= theta^r(r-1)!`= rth order central moment (`mu_r`)</p>
+            <p>`:.` 1st order central moment= mean = `theta` </p>
+            <p>`:.` 2nd order central moment= variance = `theta^2` </p>
+            
+
+        </ul>
+    </div>
+
+</body>
+
+</html>
