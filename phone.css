@@ -19,7 +19,8 @@
     overflow: auto;
     width:70%;
 }
-H1{
+H1{ 
+    font-size: 5vw;
     animation: none;
     margin:auto;
 }
