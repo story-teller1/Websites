@@ -1,0 +1,78 @@
+*{
+    margin:0vw;
+    padding:0vw;
+    font-size: 1.7vw;
+}
+.rightcontainer{
+    display:block;
+    position:static;
+    padding:1vw;
+    border: .1vw solid white;
+    margin:1.5vw;
+
+}
+
+.container{
+    font-size: 5vw;
+
+}
+.container2{
+    font-size: 8vw;
+}
+H1{
+    font-size: 2.8vw;
+    animation: none;
+    margin:auto;
+    border: 0.1em dashed brown;
+}
+.heading{
+    border: 0.2em solid white;
+    height: em;
+}
+.intro{
+    padding: 3vw 5vw;
+}
+.container2 .func {
+    display: inline-block;
+    margin: auto;
+    padding: 2vw 1.5vw;
+    font-size: 1vw;
+
+}
+.heading{
+    animation:none;
+    text-align: center;
+}
+div{
+    padding: 2vw;
+}
+
+.comments{
+    display:block;
+    position: static;
+    padding:1vw;
+    width:fit-content;
+    border: .1vw solid white;
+}
+.head{
+    margin: 0.5vw;
+    border: .2vw dashed white;
+}
+p{
+    padding-top: 1.5vw;
+    padding-bottom: 1vw;
+}
+.container{
+    font-size: 5em;
+}
+.func{
+    font-size: 0.2em;
+    padding: 1.8em 2em;
+}
+.rightcontainers{
+    height:45vw;
+}
+h2{
+    font-size: 1.5em;
+    padding: 0.6em;
+}
